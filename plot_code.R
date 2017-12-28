@@ -54,7 +54,10 @@ ems_type <- NEI[NEI$fips==24510,]%>%
 
 ggplot(ems_type)+
   geom_line(aes(x=year, y=tot, color=as.factor(type)))+
-  theme_minimal()
+  labs(title="PM2.5 Emissions by Type", 
+       x="Year", y="Tons of PM2.5 Emissions",
+       color="Source Type")+
+  theme(plot.title = element_text(hjust=0.5))
 
 ## Question 4
 coal <- full[grepl("Coal", full$Short.Name),]
